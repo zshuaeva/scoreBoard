@@ -6,7 +6,7 @@ from tkinter.scrolledtext import ScrolledText
 
 def fetch_nfl_games_data():
     selected_date = date_picker.get_date()
-    api_url = "https://api-american-football.p.rapidapi.com/games"
+    api_url = ""
     headers = {
         "X-Rapidapi-Key": "",
         "X-Rapidapi-Host": "",
