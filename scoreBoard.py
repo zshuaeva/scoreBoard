@@ -12,7 +12,6 @@ def fetch_nfl_games_data():
         "X-Rapidapi-Host": "",
     }
 
-
     params = {"date": selected_date, "league": 1}
 
     try:
@@ -20,13 +19,13 @@ def fetch_nfl_games_data():
 
         if response.status_code == 200:
             data = response.json()
-            games_today = len(data['response'])  # Count of games for today
+            games_today = len(data["response"])  # Count of games for today
             games_today_label.config(text=f"Games today: {games_today}")
 
             game_info_text.delete("1.0", tk.END)
 
-            for game in data['response']:
-                time = game['game']['date']['time']
+            for game in data["response"]:
+                time = game["game"]["date"]["time"]
                 home_team = game["teams"]["home"]["name"]
                 away_team = game["teams"]["away"]["name"]
 
@@ -36,7 +35,9 @@ def fetch_nfl_games_data():
                 game_info_text.insert(tk.END, "\n")
 
         else:
-            print(f"Failed to fetch NFL games data. Status Code: {response.status_code}")
+            print(
+                f"Failed to fetch NFL games data. Status Code: {response.status_code}"
+            )
             print(response.text)
     except Exception as e:
         print(f"An error occurred: {str(e)}")
@@ -55,7 +56,9 @@ games_today_label.pack()
 game_info_text = ScrolledText(root, height=10, width=40)
 game_info_text.pack(fill=tk.BOTH, expand=True)
 
-fetch_button = tk.Button(root, text="Fetch NFL Games Data", command=fetch_nfl_games_data)
+fetch_button = tk.Button(
+    root, text="Fetch NFL Games Data", command=fetch_nfl_games_data
+)
 fetch_button.pack()
 
 root.mainloop()
