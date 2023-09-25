@@ -1,0 +1,11 @@
+
+venv/
+raspi/
+
+
+config.py
+secrets.py
+
+.env
+node_modules
+raspiPyVenv
