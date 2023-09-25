@@ -27,8 +27,8 @@ class NFLGamesApp(QMainWindow):
         self.central_widget.setLayout(layout)
 
         self.date_picker = QDateEdit()
-        self.date_picker.setCalendarPopup(True)  # Enable calendar popup
-        self.date_picker.setDate(QDate.currentDate())  # Set default date to today
+        self.date_picker.setCalendarPopup(True)
+        self.date_picker.setDate(QDate.currentDate())
         layout.addWidget(self.date_picker)
 
         self.games_info_text = QTextEdit()
